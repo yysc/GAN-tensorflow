@@ -1,5 +1,7 @@
+./samples/*
 ./data/*
 *.jpg
 .DS_Store
 *.pyc
 *-ubyte
+.vscode/*
