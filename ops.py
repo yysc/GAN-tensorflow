@@ -52,3 +52,19 @@ def conv_cond_concat(value, cond, name='concat'):
     # add label column to each feature.
     with tf.variable_scope(name):
         return tf.concat([value, cond * tf.ones(value_shape[0:3] + cond_shape[3:])], 3)
+
+
+def deconv2d(value, output_shape, k_h=5, k_w=5, strides=[1, 2, 2, 1], name="deconv2d", with_w=False):
+    with tf.variable_scope(name) as scope:
+        weights = weight(
+            'weights', [k_h, k_w, output_shape[-1], value.get_shape()[-1]])
+        deconv = tf.nn.conv2d_transpose(
+            value, weights, output_shape, strides=strides)
+
+        biases = bias("biases", [output_shape[-1]])
+        deconv = tf.reshape(tf.nn.bias_add(deconv, biases), deconv.get_shape())
+        if with_w:
+            return deconv, weights, biases
+        else:
+            return deconv
+
