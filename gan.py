@@ -14,7 +14,7 @@ def train():
     # 设置 global_step ，用来记录训练过程中的 step        
     global_step = tf.Variable(0, name = 'global_step', trainable = False)
     # 训练过程中的日志保存文件
-    train_dir = '/Users/yy/Documents/github/DCGAN-tensorflow/data/mnist/log'
+    train_dir = './data/mnist/log'
 
     # 放置三个 placeholder，y 表示约束条件，images 表示送入判别器的图片，
     # z 表示随机噪声

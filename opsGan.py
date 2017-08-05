@@ -99,7 +99,7 @@ def conv_cond_concat(value, cond, name='concat'):
     # Concat condition to the third dimension. input: [64, 32, 32, 32] Condition: [64, 32, 32, 10] => [64, 32, 32, 42]
     with tf.variable_scope(name):
         return tf.concat([value,
-                          cond * tf.ones(value_shapes[0:3] + cond_shapes[3:])], 3)
+                          cond * tf.ones(value_shapes[0:3] + cond_shapes[3:1])], 3)
 
 # Batch Normalization layer
 

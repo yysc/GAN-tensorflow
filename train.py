@@ -4,7 +4,7 @@ from model import *
 
 def train():
     global_step = tf.Variable(0, name='global_step', trainable=False)
-    train_dir = './log'
+    train_dir = './result/log'
 
     label = tf.placeholder(tf.float32, [BATCH_SIZE, 10], name='rawLabels')
     images = tf.placeholder(
@@ -16,3 +16,4 @@ def train():
 
 if __name__ == "__main__":
     train()
+
