@@ -1,8 +1,9 @@
-./samples/*
-./data/*
+log
+samples
+data
 *.jpg
 .DS_Store
 *.pyc
 *-ubyte
 *.png
-.vscode/*
+.vscode
